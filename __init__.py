@@ -159,7 +159,7 @@ class MultiKeyDict(UserDict):
         return convert_to_normal_dict_simple(self.data)
 
     def copy(self):
-        return deepcopy(MultiKeyDict(deepcopy(self.data)))
+        return MultiKeyDict(deepcopy(self.data))
 
     def items(self):
         return self.to_dict().items()
