@@ -84,11 +84,8 @@ class MultiKeyDict(UserDict):
             Returns a reversed iterator of the keys in the nested dictionary.
     """
 
-    def __init__(self, /, initialdata=None, **kwargs):
-        super().__init__(**kwargs)
-
-        if initialdata:
-            self.data.update(initialdata)
+    def __init__(self, dict=None, /, **kwargs):
+        super().__init__(dict,**kwargs)
         self.data = convert_to_default_dict(self.data)
 
     def __getitem__(self, key, /):
