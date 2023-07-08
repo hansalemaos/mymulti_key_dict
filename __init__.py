@@ -124,13 +124,13 @@ class MultiKeyDict(UserDict):
                 v = self.data[key]
         else:
             v = self._get_from_original_iter(key)
-        v = MultiKeyDict._convert2dict(v)
+        v = self.__class__._convert2dict(v)
         return v
 
     def pop(self, key, default=None):
         if not isinstance(key, list):
             v = super().pop(key, default)
-            v = MultiKeyDict._convert2dict(v)
+            v = self.__class__._convert2dict(v)
             return v
         else:
             return self._convert2dict(self._del_and_return(key))
@@ -156,7 +156,7 @@ class MultiKeyDict(UserDict):
         return convert_to_normal_dict_simple(self.data)
 
     def copy(self):
-        return MultiKeyDict(deepcopy(self.data))
+        return self.__class__(deepcopy(self.data))
 
     def items(self):
         return self.to_dict().items()
