@@ -23,7 +23,7 @@ updating the dictionary with another dictionary, clearing the dictionary, and mo
 These methods make it convenient to perform common dictionary operations 
 while preserving the nested structure.
 
-By extending the UserDict class, the MultiKeyDict class inherits the basic dictionary functionality 
+By extending the dict class, the MultiKeyDict class inherits the basic dictionary functionality 
 and adds the ability to handle nested keys. 
 It also overrides certain methods, such as **\_\_getitem\_\_**, **\_\_setitem\_\_**, **\_\_delitem\_\_**, and others, 
 to enable the list key functionality and provide the expected behavior for accessing 
